@@ -1,0 +1,374 @@
+﻿<Window x:Class="Homm3.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Homm3.WPF"
+        mc:Ignorable="d"
+        Title="HOMM3 Hota calculator v1.0" Height="450" Width="900">
+    <Window.Resources>
+        <Style TargetType="ComboBox">
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        
+        <Style TargetType="local:FilteredComboBox">
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="3" />
+        </Style>
+        <local:StringToXamlConverter x:Key="StringToXaml" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <GroupBox Header="Presets">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="150"/>
+                        <ColumnDefinition Width="Auto" MinWidth="30"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto" MinWidth="30"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Grid.Column="0" x:Name="cmbPreset">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Text="{Binding Path=Name}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button Grid.Column="2" Margin="3" x:Name="btnReloadPresets" Content="Reload Presets"/>
+                    <Button Grid.Column="4" Margin="3" x:Name="btnRegeneratePresets" Content="Regenerate presets file"/>
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition MinWidth="200" Width="Auto"/>
+
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition MinWidth="130" Width="Auto"/>
+
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition MinWidth="70" Width="Auto"/>
+                
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <GroupBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Header="Game information">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" MinWidth="160"/>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" MinWidth="60" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Grid.Row="0" Grid.Column="0" Content="Monster Strength"/>
+                    <ComboBox Grid.Row="0" Grid.Column="1" x:Name="cmbMonsterStrengthMap" IsTextSearchEnabled="True" TextSearch.TextPath="Name">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <TextBlock Text="{Binding Path=Name}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Label Grid.Row="0" Grid.Column="2" Content="Week"/>
+                    <TextBox Grid.Column="3" x:Name="txtWeek" Width="40" HorizontalAlignment="Left" PreviewTextInput="NumberValidationTextBox_PreviewTextInput" DataObject.Pasting="NumberValidationTextBox_Pasting" />
+                    <Button Grid.Column="3" x:Name="btnIncWeek" Width="17" Margin="0 3 0 3" HorizontalAlignment="Right" Content="^"></Button>
+                </Grid>
+            </GroupBox>
+            
+            <Label Grid.Row="1" Grid.Column="0" Content="Monster Strength In Zone"/>
+            <ComboBox Grid.Row="1" Grid.Column="1" x:Name="cmbMonsterStrengthZone" IsTextSearchEnabled="True" TextSearch.TextPath="Name">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock Text="{Binding Path=Name}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label Grid.Row="1" Grid.Column="2" Content="Protection Index"/>
+            <Label Grid.Row="1" Grid.Column="3" Content="" x:Name="lblProtectionIndex"/>
+
+            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" x:Name="grdZoneGuard">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition MinWidth="227" Width="Auto"/>
+
+                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition MinWidth="130" Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Zone Guard Value" ToolTip="Leave empty for treasure guards."/>
+                <TextBox Grid.Column="1" x:Name="txtZoneConnection" PreviewTextInput="NumberValidationTextBox_PreviewTextInput" DataObject.Pasting="NumberValidationTextBox_Pasting"  ToolTip="Leave empty for treasure guards."/>
+                <Label Grid.Column="2" Content="Effective AI Value"/>
+                <Label Grid.Column="3" Content="" x:Name="lblZoneConnectionAiValue"/>
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" x:Name="grdMapObjects">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition MinWidth="210" Width="Auto"/>
+                    <ColumnDefinition Width="17"/>
+
+                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition MinWidth="130" Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Map Object 1"/>
+                <local:FilteredComboBox Grid.Row="0" Grid.Column="1" x:Name="cmbMapObject1"
+                                        ItemsSource="{Binding MyItemsSource}" 
+                                        SelectedItem="{Binding MySelectedItem}"
+                                        DisplayMemberPath="Name" 
+                                        IsEditable="True" 
+                                        IsTextSearchEnabled="False" 
+                                        StaysOpenOnEdit="True">
+
+                    <local:FilteredComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel VirtualizationMode="Recycling" />
+                        </ItemsPanelTemplate>
+                    </local:FilteredComboBox.ItemsPanel>
+                </local:FilteredComboBox>
+                <Button Grid.Row="0" Grid.Column="2" Margin="-3,3,3,3" x:Name="btnClearMapObject1" Content="X"/>
+                <Label Grid.Row="0" Grid.Column="3" Content="Effective AI Value"/>
+                <Label Grid.Row="0" Grid.Column="4" Content="" x:Name="lblMapObject1AiValue"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Map Object 2"/>
+                <local:FilteredComboBox Grid.Row="1" Grid.Column="1" x:Name="cmbMapObject2"
+                                        ItemsSource="{Binding MyItemsSource}" 
+                                        SelectedItem="{Binding MySelectedItem}"
+                                        DisplayMemberPath="Name" 
+                                        IsEditable="True" 
+                                        IsTextSearchEnabled="False" 
+                                        StaysOpenOnEdit="True">
+
+                    <local:FilteredComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel VirtualizationMode="Recycling" />
+                        </ItemsPanelTemplate>
+                    </local:FilteredComboBox.ItemsPanel>
+                </local:FilteredComboBox>
+                <Button  Grid.Row="1" Grid.Column="2" Margin="-3,3,3,3" x:Name="btnClearMapObject2" Content="X"/>
+                <Label Grid.Row="1" Grid.Column="3" Content="Effective AI Value"/>
+                <Label Grid.Row="1" Grid.Column="4" Content="" x:Name="lblMapObject2AiValue"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Map Object 3"/>
+                <local:FilteredComboBox Grid.Row="2" Grid.Column="1" x:Name="cmbMapObject3"
+                                        ItemsSource="{Binding MyItemsSource}" 
+                                        SelectedItem="{Binding MySelectedItem}"
+                                        DisplayMemberPath="Name" 
+                                        IsEditable="True" 
+                                        IsTextSearchEnabled="False" 
+                                        StaysOpenOnEdit="True">
+
+                    <local:FilteredComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel VirtualizationMode="Recycling" />
+                        </ItemsPanelTemplate>
+                    </local:FilteredComboBox.ItemsPanel>
+                </local:FilteredComboBox>
+                <Button  Grid.Row="2" Grid.Column="2" Margin="-3,3,3,3" x:Name="btnClearMapObject3" Content="X"/>
+                <Label Grid.Row="2" Grid.Column="3" Content="Effective AI Value"/>
+                <Label Grid.Row="2" Grid.Column="4" Content="" x:Name="lblMapObject3AiValue"/>
+
+                <Label Grid.Row="3" Grid.Column="0" Content="Map Object 4"/>
+                <local:FilteredComboBox Grid.Row="3" Grid.Column="1" x:Name="cmbMapObject4"
+                                        ItemsSource="{Binding MyItemsSource}" 
+                                        SelectedItem="{Binding MySelectedItem}"
+                                        DisplayMemberPath="Name" 
+                                        IsEditable="True" 
+                                        IsTextSearchEnabled="False" 
+                                        StaysOpenOnEdit="True">
+
+                    <local:FilteredComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel VirtualizationMode="Recycling" />
+                        </ItemsPanelTemplate>
+                    </local:FilteredComboBox.ItemsPanel>
+                </local:FilteredComboBox>
+                <Button  Grid.Row="3" Grid.Column="2" Margin="-3,3,3,3" x:Name="btnClearMapObject4" Content="X"/>
+                <Label Grid.Row="3" Grid.Column="3" Content="Effective AI Value"/>
+                <Label Grid.Row="3" Grid.Column="4" Content="" x:Name="lblMapObject4AiValue"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Content="Map Object 5"/>
+                <local:FilteredComboBox Grid.Row="4" Grid.Column="1" x:Name="cmbMapObject5"
+                                        ItemsSource="{Binding MyItemsSource}" 
+                                        SelectedItem="{Binding MySelectedItem}"
+                                        DisplayMemberPath="Name" 
+                                        IsEditable="True" 
+                                        IsTextSearchEnabled="False" 
+                                        StaysOpenOnEdit="True">
+
+                    <local:FilteredComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel VirtualizationMode="Recycling" />
+                        </ItemsPanelTemplate>
+                    </local:FilteredComboBox.ItemsPanel>
+                </local:FilteredComboBox>
+                <Button  Grid.Row="4" Grid.Column="2" Margin="-3,3,3,3" x:Name="btnClearMapObject5" Content="X"/>
+                <Label Grid.Row="4" Grid.Column="3" Content="Effective AI Value"/>
+                <Label Grid.Row="4" Grid.Column="4" Content="" x:Name="lblMapObject5AiValue"/>
+
+                <Label Grid.Row="5" Grid.Column="0" Content="Map Object 6"/>
+                <local:FilteredComboBox Grid.Row="5" Grid.Column="1" x:Name="cmbMapObject6"
+                                        ItemsSource="{Binding MyItemsSource}" 
+                                        SelectedItem="{Binding MySelectedItem}"
+                                        DisplayMemberPath="Name" 
+                                        IsEditable="True" 
+                                        IsTextSearchEnabled="False" 
+                                        StaysOpenOnEdit="True">
+
+                    <local:FilteredComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel VirtualizationMode="Recycling" />
+                        </ItemsPanelTemplate>
+                    </local:FilteredComboBox.ItemsPanel>
+                </local:FilteredComboBox>
+                <Button  Grid.Row="5" Grid.Column="2" Margin="-3,3,3,3" x:Name="btnClearMapObject6" Content="X"/>
+                <Label Grid.Row="5" Grid.Column="3" Content="Effective AI Value"/>
+                <Label Grid.Row="5" Grid.Column="4" Content="" x:Name="lblMapObject6AiValue"/>
+            </Grid>
+            
+            <Label Grid.Row="4" Grid.Column="0" Content="Guard"/>
+            <Grid Grid.Row="4" Grid.Column="1" Margin="0" Width="227">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition  Width="*"/>
+                    <ColumnDefinition Width="17"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox Grid.Column="0" Margin="3 3 -3 3" x:Name="cmbMonsterSize">
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="IsEnabled" Value="{Binding IsSelectable}" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+                    <ComboBox.ItemTemplateSelector>
+                        <local:ComboBoxItemTemplateSelector>
+                            <local:ComboBoxItemTemplateSelector.SelectedTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DisplayName}"/>
+                                </DataTemplate>
+                            </local:ComboBoxItemTemplateSelector.SelectedTemplate>
+                            <local:ComboBoxItemTemplateSelector.DropDownTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DetailedName}"/>
+                                </DataTemplate>
+                            </local:ComboBoxItemTemplateSelector.DropDownTemplate>
+                        </local:ComboBoxItemTemplateSelector>
+                    </ComboBox.ItemTemplateSelector>
+                </ComboBox>
+                <local:FilteredComboBox Grid.Column="1" x:Name="cmbMonster"
+                                        ItemsSource="{Binding MyItemsSource}" 
+                                        SelectedItem="{Binding MySelectedItem}"
+                                        DisplayMemberPath="Name" 
+                                        IsEditable="True" 
+                                        IsTextSearchEnabled="False" 
+                                        StaysOpenOnEdit="True">
+
+                    <local:FilteredComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel VirtualizationMode="Recycling" />
+                        </ItemsPanelTemplate>
+                    </local:FilteredComboBox.ItemsPanel>
+                </local:FilteredComboBox>
+                <Button  Grid.Column="2" Margin="-3,3,3,3" x:Name="btnClearGuard" Content="X"/>
+            </Grid>
+            
+            <Label Grid.Row="4" Grid.Column="2" Content="AI Value"/>
+            <Label Grid.Row="4" Grid.Column="3" Content="" x:Name="lblMonsterAiValue"/>
+            
+            <Label Grid.Row="5" Grid.Column="2" Content="Total AI Value" x:Name="lblTotalAiValueLabel"/>
+            <Label Grid.Row="5" Grid.Column="3" Content="" x:Name="lblTotalAiValue"/>
+
+            <!--<TextBlock Grid.Row="6" Grid.ColumnSpan="6" MaxWidth="860" x:Name="lblResult" TextWrapping="WrapWithOverflow" />-->
+
+            <ContentControl Grid.Row="6" Grid.ColumnSpan="6" MaxWidth="860" x:Name="lblResult"
+               Content="{Binding Converter={StaticResource StringToXaml}, Mode=OneTime}">
+            </ContentControl>
+            
+            <GroupBox Grid.Row="0" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="2" Header="Zone info for dwellings">
+                <Grid x:Name="grdZoneCount">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition MinWidth="70" Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Number of zones with towns" ToolTip="Only important for creature dwellings."/>
+                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtZoneTotalCount" PreviewTextInput="NumberValidationTextBox_PreviewTextInput" DataObject.Pasting="NumberValidationTextBox_Pasting"  ToolTip="Only important for creature dwellings."/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Content="Number of Castle zones" ToolTip="Only important for creature dwellings."/>
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtZoneCastleCount" PreviewTextInput="NumberValidationTextBox_PreviewTextInput" DataObject.Pasting="NumberValidationTextBox_Pasting"  ToolTip="Only important for creature dwellings."/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Content="Number of Conflux zones" ToolTip="Only important for creature dwellings."/>
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtZoneConfluxCount" PreviewTextInput="NumberValidationTextBox_PreviewTextInput" DataObject.Pasting="NumberValidationTextBox_Pasting"  ToolTip="Only important for creature dwellings."/>
+
+                    <Label Grid.Row="3" Grid.Column="0" Content="Number of Cove zones" ToolTip="Only important for creature dwellings."/>
+                    <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtZoneCoveCount" PreviewTextInput="NumberValidationTextBox_PreviewTextInput" DataObject.Pasting="NumberValidationTextBox_Pasting"  ToolTip="Only important for creature dwellings."/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Content="Number of Dungeon zones" ToolTip="Only important for creature dwellings."/>
+                    <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtZoneDungeonCount" PreviewTextInput="NumberValidationTextBox_PreviewTextInput" DataObject.Pasting="NumberValidationTextBox_Pasting"  ToolTip="Only important for creature dwellings."/>
+
+                    <Label Grid.Row="5" Grid.Column="0" Content="Number of Fortress zones" ToolTip="Only important for creature dwellings."/>
+                    <TextBox Grid.Row="5" Grid.Column="1" x:Name="txtZoneFortressCount" PreviewTextInput="NumberValidationTextBox_PreviewTextInput" DataObject.Pasting="NumberValidationTextBox_Pasting"  ToolTip="Only important for creature dwellings."/>
+
+                    <Label Grid.Row="6" Grid.Column="0" Content="Number of Inferno zones" ToolTip="Only important for creature dwellings."/>
+                    <TextBox Grid.Row="6" Grid.Column="1" x:Name="txtZoneInfernoCount" PreviewTextInput="NumberValidationTextBox_PreviewTextInput" DataObject.Pasting="NumberValidationTextBox_Pasting"  ToolTip="Only important for creature dwellings."/>
+
+                    <Label Grid.Row="7" Grid.Column="0" Content="Number of Necropolis zones" ToolTip="Only important for creature dwellings."/>
+                    <TextBox Grid.Row="7" Grid.Column="1" x:Name="txtZoneNecropolisCount" PreviewTextInput="NumberValidationTextBox_PreviewTextInput" DataObject.Pasting="NumberValidationTextBox_Pasting"  ToolTip="Only important for creature dwellings."/>
+
+                    <Label Grid.Row="8" Grid.Column="0" Content="Number of Rampart zones" ToolTip="Only important for creature dwellings."/>
+                    <TextBox Grid.Row="8" Grid.Column="1" x:Name="txtZoneRampartCount" PreviewTextInput="NumberValidationTextBox_PreviewTextInput" DataObject.Pasting="NumberValidationTextBox_Pasting"  ToolTip="Only important for creature dwellings."/>
+
+                    <Label Grid.Row="9" Grid.Column="0" Content="Number of Stronghold zones" ToolTip="Only important for creature dwellings."/>
+                    <TextBox Grid.Row="9" Grid.Column="1" x:Name="txtZoneStrongholdCount" PreviewTextInput="NumberValidationTextBox_PreviewTextInput" DataObject.Pasting="NumberValidationTextBox_Pasting"  ToolTip="Only important for creature dwellings."/>
+
+                    <Label Grid.Row="10" Grid.Column="0" Content="Number of Tower zones" ToolTip="Only important for creature dwellings."/>
+                    <TextBox Grid.Row="10" Grid.Column="1" x:Name="txtZoneTowerCount" PreviewTextInput="NumberValidationTextBox_PreviewTextInput" DataObject.Pasting="NumberValidationTextBox_Pasting"  ToolTip="Only important for creature dwellings."/>
+                </Grid>
+            </GroupBox>
+            
+        </Grid>
+    </Grid>
+</Window>

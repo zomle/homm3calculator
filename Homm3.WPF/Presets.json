@@ -1,0 +1,48 @@
+{
+    "Presets": [
+        {
+            //Name that will appear in the dropdown list.
+            "Name": "Jebus Cross (zone guard)",
+
+            //Strength of the monsters in the zone, or whther it's a zone guard.
+            //Possible values: ZoneGuard, Weak, Average, Strong
+            "ZoneMonsterStrength": "ZoneGuard",
+
+            //Value of the zone guard, if it's a zone guard. If it's not a zone guard, leave it null.
+            "ZoneConnectionValue": 45000,
+
+            //Number of zones in the template, that has at least 1 town.
+            "NumberOfZonesWithTowns": 5
+        },
+        {
+            "Name": "Jebus Cross (start zone)",
+            "ZoneMonsterStrength": "Weak",
+            "ZoneConnectionValue": null,
+            "NumberOfZonesWithTowns": 5
+        },
+        {
+            "Name": "Jebus Cross (desert)",
+            "ZoneMonsterStrength": "Strong",
+            "ZoneConnectionValue": null,
+            "NumberOfZonesWithTowns": 5
+        },
+        {
+            "Name": "8xm8 (any zone)",
+            "ZoneMonsterStrength": "Average",
+            "ZoneConnectionValue": null,
+            "NumberOfZonesWithTowns": 16
+        },
+        {
+            "Name": "Diamond (any zone)",
+            "ZoneMonsterStrength": "Average",
+            "ZoneConnectionValue": null,
+            "NumberOfZonesWithTowns": 16
+        },
+        {
+            "Name": "Clash of Dragons (start zone)",
+            "ZoneMonsterStrength": "Weak",
+            "ZoneConnectionValue": null,
+            "NumberOfZonesWithTowns": 10
+        }
+    ]
+}
