@@ -9,6 +9,8 @@
     <Product>HOMM3 Hota calculator</Product>
     <Company></Company>
     <Authors>zomle</Authors>
+    <PackageId>Homm3.Calculator</PackageId>
+    <AssemblyName>Homm3.Calculator</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
