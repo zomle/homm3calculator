@@ -68,7 +68,7 @@ namespace Homm3.WPF
 			yield return new Monster(Town.Necropolis, "Dread Knight", 2382, 2);
 			yield return new Monster(Town.Rampart, "Dwarf", 138, 8);
 			yield return new Monster(Town.Conflux, "Earth Elemental", 330, 4);
-			yield return new Monster(Town.Inferno, "Efreet Sultan", 1848, 2);
+			yield return new Monster(Town.Inferno, "Efreet Sultan", 2343, 2);
 			yield return new Monster(Town.Inferno, "Efreet", 1670, 2);
 			yield return new Monster(Town.Neutral, "Enchanter", 1210, 2);
 			yield return new Monster(Town.Conflux, "Energy Elemental", 470, 5);
@@ -165,6 +165,7 @@ namespace Homm3.WPF
 			yield return new Monster(Town.Necropolis, "Skeleton", 60, 12);
 			yield return new Monster(Town.Cove, "Sorceress", 852, 3);
 			yield return new Monster(Town.Conflux, "Sprite", 95, 20);
+			yield return new Monster(Town.Neutral, "Steel Golem", 597, 4);
 			yield return new Monster(Town.Tower, "Stone Gargoyle", 165, 9);
 			yield return new Monster(Town.Tower, "Stone Golem", 250, 6);
 			yield return new Monster(Town.Conflux, "Storm Elemental", 486, 6);

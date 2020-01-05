@@ -39,7 +39,7 @@ namespace Homm3.WPF
 			yield return new MapObject("Alchemist's Lab", 3500);
 			yield return new MapObject("Altar of Mana", 100);
 			yield return new MapObject("Altar of Sacrifice", 100);
-			yield return new MapObject("Ancient Lamp", 7000);
+			yield return new MapObject("Ancient Lamp", 5000);
 			yield return new MapObject("Arena", 3000);
 			yield return new MapObject("Beholders' Sanctuary", 2500);
 			yield return new MapObject("Black Market", 8000);
@@ -60,6 +60,7 @@ namespace Homm3.WPF
 			yield return new MapObject("Cyclops Stockpile", 3000);
 			yield return new MapObject("Den of Thieves", 100);
 			yield return new MapObject("Derelict Ship", 4000);
+			yield return new MapObject("Derrick", 750);
 			yield return new MapObject("Dragon Fly Hive", 9000);
 			yield return new MapObject("Dragon Utopia", 10000);
 			yield return new MapObject("Dwarven Treasury", 2000);
@@ -76,6 +77,7 @@ namespace Homm3.WPF
 			yield return new MapObject("Gem Pond", 3500);
 			yield return new MapObject("Gold", 750);
 			yield return new MapObject("Gold Mine", 7000);
+			yield return new MapObject("Grave", 500);
 			yield return new MapObject("Griffin Conservatory", 2000);
 			yield return new MapObject("Hermit's Shack", 1500);
 			yield return new MapObject("Hill Fort (Old or New)", 7000);
@@ -111,12 +113,12 @@ namespace Homm3.WPF
 			yield return new GuessableMapObject("Pandora's Box (10k exp)", 12000, "Pandora's Box exp 10k", "exp", "10k");
 			yield return new GuessableMapObject("Pandora's Box (15k exp)", 18000, "Pandora's Box exp 15k", "exp", "15k");
 			yield return new GuessableMapObject("Pandora's Box (20k exp)", 24000, "Pandora's Box exp 20k", "exp", "20k");
-			yield return new GuessableMapObject("Pandora's Box (5k gold)", 5000,   "Pandora's Box gold 05k", "gold", "5k");
+			yield return new GuessableMapObject("Pandora's Box (5k gold)", 5000, "Pandora's Box gold 05k", "gold", "5k");
 			yield return new GuessableMapObject("Pandora's Box (10k gold)", 10000, "Pandora's Box gold 10k", "gold", "10k");
 			yield return new GuessableMapObject("Pandora's Box (15k gold)", 15000, "Pandora's Box gold 15k", "gold", "15k");
 			yield return new GuessableMapObject("Pandora's Box (20k gold)", 20000, "Pandora's Box gold 20k", "gold", "20k");
-			yield return new GuessableMapObject("Pandora's Box (1st lvl spells)", 5000 , "Pandora's Box spell 1", "spell", "lvl 1");
-			yield return new GuessableMapObject("Pandora's Box (2nd lvl spells)", 7500 , "Pandora's Box spell 2", "spell", "lvl 2");
+			yield return new GuessableMapObject("Pandora's Box (1st lvl spells)", 5000, "Pandora's Box spell 1", "spell", "lvl 1");
+			yield return new GuessableMapObject("Pandora's Box (2nd lvl spells)", 7500, "Pandora's Box spell 2", "spell", "lvl 2");
 			yield return new GuessableMapObject("Pandora's Box (3rd lvl spells)", 10000, "Pandora's Box spell 3", "spell", "lvl 3");
 			yield return new GuessableMapObject("Pandora's Box (4th lvl spells)", 12500, "Pandora's Box spell 4", "spell", "lvl 4");
 			yield return new GuessableMapObject("Pandora's Box (5th lvl spells)", 15000, "Pandora's Box spell 5", "spell", "lvl 5");
@@ -125,9 +127,9 @@ namespace Homm3.WPF
 			yield return new GuessableMapObject("Pandora's Box (all fire spells)", 15000, "Pandora's Box spell all fire", "spell", "fire");
 			yield return new GuessableMapObject("Pandora's Box (all water spells)", 15000, "Pandora's Box spell all water", "spell", "water");
 			yield return new GuessableMapObject("Pandora's Box (all spells)", 30000, "Pandora's Box spell full all", "spell", "all");
-			yield return new MapObject("Pandora's Box (lvl 1 monster)", 5000 , "Pandora's Box monster 1");
-			yield return new MapObject("Pandora's Box (lvl 2 monster)", 7000 , "Pandora's Box monster 2");
-			yield return new MapObject("Pandora's Box (lvl 3 monster)", 9000 , "Pandora's Box monster 3");
+			yield return new MapObject("Pandora's Box (lvl 1 monster)", 5000, "Pandora's Box monster 1");
+			yield return new MapObject("Pandora's Box (lvl 2 monster)", 7000, "Pandora's Box monster 2");
+			yield return new MapObject("Pandora's Box (lvl 3 monster)", 9000, "Pandora's Box monster 3");
 			yield return new MapObject("Pandora's Box (lvl 4 monster)", 12000, "Pandora's Box monster 4");
 			yield return new MapObject("Pandora's Box (lvl 5 monster)", 16000, "Pandora's Box monster 5");
 			yield return new MapObject("Pandora's Box (lvl 6 monster)", 21000, "Pandora's Box monster 6");
@@ -139,6 +141,7 @@ namespace Homm3.WPF
 			yield return new GuessableMapObject("Prison (lvl 10 hero)", 10000, "Prison 10", "", "lvl 10");
 			yield return new GuessableMapObject("Prison (lvl 20 hero)", 20000, "Prison 20", "", "lvl 20");
 			yield return new GuessableMapObject("Prison (lvl 30 hero)", 30000, "Prison 30", "", "lvl 30");
+			yield return new MapObject("Prospector", 500);
 			yield return new MapObject("Pyramid", 5000);
 			yield return new MapObject("Rally Flag", 100);
 			yield return new MapObject("Random Resource", 1500);
@@ -163,9 +166,9 @@ namespace Homm3.WPF
 			yield return new GuessableMapObject("Seer's Hut (10k gold)", 5333, "Seer's Hut gold 10", "gold", "10k");
 			yield return new GuessableMapObject("Seer's Hut (15k gold)", 8666, "Seer's Hut gold 15", "gold", "15k");
 			yield return new GuessableMapObject("Seer's Hut (20k gold)", 12000, "Seer's Hut gold 20", "gold", "20k");
-			yield return new MapObject("Seer's Box (lvl 1 monster)", 5000 , "Seer's Box monster 1");
-			yield return new MapObject("Seer's Box (lvl 2 monster)", 7000 , "Seer's Box monster 2");
-			yield return new MapObject("Seer's Box (lvl 3 monster)", 9000 , "Seer's Box monster 3");
+			yield return new MapObject("Seer's Box (lvl 1 monster)", 5000, "Seer's Box monster 1");
+			yield return new MapObject("Seer's Box (lvl 2 monster)", 7000, "Seer's Box monster 2");
+			yield return new MapObject("Seer's Box (lvl 3 monster)", 9000, "Seer's Box monster 3");
 			yield return new MapObject("Seer's Box (lvl 4 monster)", 12000, "Seer's Box monster 4");
 			yield return new MapObject("Seer's Box (lvl 5 monster)", 16000, "Seer's Box monster 5");
 			yield return new MapObject("Seer's Box (lvl 6 monster)", 21000, "Seer's Box monster 6");
@@ -195,6 +198,7 @@ namespace Homm3.WPF
 			yield return new MapObject("Temple", 100);
 			yield return new MapObject("Town Gate", 10000);
 			yield return new MapObject("Trading Post", 3000);
+			yield return new MapObject("Trailblazer", 200);
 			yield return new MapObject("Treasure Artifact", 2000);
 			yield return new MapObject("Treasure Chest", 1500);
 			yield return new MapObject("Tree of Knowledge", 2500);
@@ -209,6 +213,7 @@ namespace Homm3.WPF
 			yield return new MapObject("Warehouse (Ore)", 2250);
 			yield return new MapObject("Warehouse (Sulfur)", 2500);
 			yield return new MapObject("Warehouse (Wood)", 2250);
+			yield return new MapObject("Warlock's Lab", 3000)
 			yield return new MapObject("Warrior's Tomb", 6000);
 			yield return new MapObject("Water Wheel", 750);
 			yield return new MapObject("Watering Hole", 500);
