@@ -213,7 +213,7 @@ namespace Homm3.WPF
 			yield return new MapObject("Warehouse (Ore)", 2250);
 			yield return new MapObject("Warehouse (Sulfur)", 2500);
 			yield return new MapObject("Warehouse (Wood)", 2250);
-			yield return new MapObject("Warlock's Lab", 3000)
+			yield return new MapObject("Warlock's Lab", 3000);
 			yield return new MapObject("Warrior's Tomb", 6000);
 			yield return new MapObject("Water Wheel", 750);
 			yield return new MapObject("Watering Hole", 500);
