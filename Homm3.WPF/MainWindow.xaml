@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homm3.WPF"
         mc:Ignorable="d"
-        Title="HOMM3 Hota calculator v1.0" Height="450" Width="900">
+        Title="HOMM3 Hota calculator" Height="450" Width="900">
     <Window.Resources>
         <Style TargetType="ComboBox">
             <Setter Property="Margin" Value="3" />

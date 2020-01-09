@@ -202,6 +202,9 @@ namespace Homm3.WPF
 		private void MainWindow_Loaded(object sender, RoutedEventArgs e)
 		{
 
+			var version = GetType().Assembly.GetName().Version;
+			Title = $"HOMM3 Hota calculator {version.Major}.{version.Minor}.{version.Build}";
+
 			cmbPreset.ItemsSource = Presets;
 			cmbMonsterSize.ItemsSource = MonsterSizes;
 			cmbMonster.ItemsSource = Monsters;
