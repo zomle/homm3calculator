@@ -289,7 +289,7 @@
                 <local:FilteredComboBox Grid.Column="1" x:Name="cmbMonster"
                                         ItemsSource="{Binding MyItemsSource}" 
                                         SelectedItem="{Binding MySelectedItem}"
-                                        DisplayMemberPath="Name" 
+                                        DisplayMemberPath="DisplayName" 
                                         IsEditable="True" 
                                         IsTextSearchEnabled="False" 
                                         StaysOpenOnEdit="True">

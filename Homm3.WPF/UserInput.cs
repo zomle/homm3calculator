@@ -36,7 +36,7 @@ namespace Homm3.WPF
 
 		public bool HasUnknownMapObject()
 		{
-			return SelectedMapObjects.Values.AsEnumerable().OfType<UnknownMapObject>().Any();
+			return !IsZoneGuard && SelectedMapObjects.Values.AsEnumerable().OfType<UnknownMapObject>().Any();
 		}
 
 		internal bool HasDwellingMapObject()

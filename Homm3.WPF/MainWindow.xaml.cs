@@ -15,6 +15,8 @@ namespace Homm3.WPF
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		private const string SupportedHotaVersion = "1.6.1";
+
 		public List<Monster> Monsters { get; set; }
 		public List<MapObject> MapObjects { get; set; }
 		public List<MonsterStrengthZone> MonsterStrengthZones { get; set; }
@@ -203,7 +205,7 @@ namespace Homm3.WPF
 		{
 
 			var version = GetType().Assembly.GetName().Version;
-			Title = $"HOMM3 Hota calculator {version.Major}.{version.Minor}.{version.Build}";
+			Title = $"HOMM3 HotA ({SupportedHotaVersion}) Calculator {version.Major}.{version.Minor}.{version.Build}";
 
 			cmbPreset.ItemsSource = Presets;
 			cmbMonsterSize.ItemsSource = MonsterSizes;
