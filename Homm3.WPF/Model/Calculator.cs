@@ -20,6 +20,7 @@ namespace Homm3.WPF
 
 	public class CalculatedMonsterValues
 	{
+		public Monster Monster { get; internal set; }
 		public int AverageMonsterCount { get; set; }
 		public int MonsterCountDeviation { get; set; }
 		public int MinimalCount { get { return AverageMonsterCount - MonsterCountDeviation; } }
@@ -101,9 +102,40 @@ namespace Homm3.WPF
 
 			if (userInput.SelectedMonster != null)
 			{
-				result.MonsterValues = CalculatedMonsterValues(result.AiValues.TotalAiValue, userInput.SelectedMonster.AiValue);
+				result.MonsterValues = CalculatedMonsterValues(result.AiValues.TotalAiValue, userInput.SelectedMonster);
 			}
 			return result;
+		}
+
+
+		public static CalculatedMonsterValues GenerateRandomGuard(UserInput userInput)
+		{
+			var monsters = MonsterFactory.ListMonsters();
+			var rnd = new Random((int)DateTime.Now.Ticks);
+
+			var towns = userInput.TownZoneCounts.Where(tzc => tzc.Value > 0).Select(tzc => tzc.Key).ToList();
+			towns.Add(Town.Neutral);
+			
+			int monsterStrengthMap = userInput.SelectedMonsterStrengthMap?.Value ?? 0;
+			int monsterStrengthZone = userInput.SelectedMonsterStrengthZone?.Value ?? 0;
+			var protectionIndex = monsterStrengthMap + monsterStrengthZone;
+
+			var aiValues = CalculateAiValues(userInput, protectionIndex);
+			CalculatedMonsterValues monsterValues = new CalculatedMonsterValues();
+
+			Monster monster;
+			while (monsterValues.Monster == null || !towns.Contains(monsterValues.Monster.Town) || monsterValues.AverageMonsterCount > 100 || monsterValues.AverageMonsterCount == 0)
+			{
+				var ix = rnd.Next(0, monsters.Count - 1);
+				monster = monsters[ix];
+				monsterValues = CalculatedMonsterValues(aiValues.TotalAiValue, monster);
+				monsters.RemoveAt(ix);
+				if (monsters.Count == 0)
+				{
+					return null;
+				}
+			}
+			return monsterValues;
 		}
 
 		private static CalculatedAiValues CalculateAiValues(UserInput userInput, int protectionIndex, int additionalAiValue = 0)
@@ -192,12 +224,13 @@ namespace Homm3.WPF
 			return result;
 		}
 
-		private static CalculatedMonsterValues CalculatedMonsterValues(int totalAiValue, int monsterAiValue)
+		private static CalculatedMonsterValues CalculatedMonsterValues(int totalAiValue, Monster monster)
 		{
 			var result = new CalculatedMonsterValues();
 
-			result.AverageMonsterCount = (int)Math.Round((double)totalAiValue / monsterAiValue);
+			result.AverageMonsterCount = (int)Math.Round((double)totalAiValue / monster.AiValue);
 			result.MonsterCountDeviation = result.AverageMonsterCount >= 4 ? result.AverageMonsterCount / 4 : 0;
+			result.Monster = monster;
 
 			return result;
 		}

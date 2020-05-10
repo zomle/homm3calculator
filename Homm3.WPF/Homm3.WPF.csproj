@@ -11,7 +11,7 @@
     <Authors>zomle</Authors>
     <PackageId>Homm3.Calculator</PackageId>
     <AssemblyName>Homm3.Calculator</AssemblyName>
-    <Version>1.0.2</Version>
+    <Version>1.0.4</Version>
   </PropertyGroup>
 
   <ItemGroup>

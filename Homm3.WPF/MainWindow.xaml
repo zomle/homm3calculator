@@ -257,8 +257,20 @@
                 <Label Grid.Row="5" Grid.Column="3" Content="Effective AI Value"/>
                 <Label Grid.Row="5" Grid.Column="4" Content="" x:Name="lblMapObject6AiValue"/>
             </Grid>
+
+            <Grid Grid.Row="4" Grid.Column="0" Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="17"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="Guard"/>
+                <Button  Grid.Column="1" Margin="-3,3,3,3" x:Name="btnRandomGuard" Content="?" >
+                    <Button.ToolTip>
+                        <Label Content="Generate possible guard for the selected objects, from the factions that has a value bigger than 0 set on the right side (plus neutral)."/>
+                    </Button.ToolTip>
+                </Button>
+            </Grid>
             
-            <Label Grid.Row="4" Grid.Column="0" Content="Guard"/>
             <Grid Grid.Row="4" Grid.Column="1" Margin="0" Width="227">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

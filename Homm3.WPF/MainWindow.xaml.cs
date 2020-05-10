@@ -91,6 +91,7 @@ namespace Homm3.WPF
 			btnClearMapObject5.Click += BtnClearMapObject5_Click;
 			btnClearMapObject6.Click += BtnClearMapObject6_Click;
 			btnClearGuard.Click += BtnClearGuard_Click;
+			btnRandomGuard.Click += BtnRandomGuard_Click;
 
 			cmbMonsterStrengthZone.SelectionChanged += CmbSelectionChanged;
 			cmbMonsterStrengthMap.SelectionChanged += CmbSelectionChanged;
@@ -166,6 +167,23 @@ namespace Homm3.WPF
 			filteredComboBox.SelectedIndex = -1;
 			RefreshUi();
 		}
+
+		private void BtnRandomGuard_Click(object sender, RoutedEventArgs e)
+		{
+			var userInput = GetUserInput();
+			var result = Calculator.GenerateRandomGuard(userInput);
+
+			if (result == null)
+			{
+				lblResult.DataContext = $"Couldn't find any possible random guard for the selected criteria.";
+			}
+			else
+			{
+				lblResult.DataContext = $"Possible random guard for the selection: <b>{result.AverageMonsterCount}</b> <b>{result.Monster.DisplayName}</b> on week 1.";
+			}
+
+		}
+
 		private void BtnClearGuard_Click(object sender, RoutedEventArgs e)
 		{
 			ClearFilteredComboBox(cmbMonster);
@@ -295,7 +313,7 @@ namespace Homm3.WPF
 			}
 		}
 
-		private void RefreshUi()
+		private UserInput GetUserInput()
 		{
 			var userInput = new UserInput();
 			userInput.SelectedMonster = cmbMonster.SelectedItem as Monster;
@@ -348,9 +366,16 @@ namespace Homm3.WPF
 			int.TryParse(txtZoneCoveCount.Text, out tmpInt);
 			userInput.TownZoneCounts[Town.Cove] = tmpInt;
 
+			return userInput;
+		}
+
+		private void RefreshUi()
+		{
+			var userInput = GetUserInput();
+
 			grdZoneGuard.IsEnabled = userInput.IsZoneGuard;
 			grdMapObjects.IsEnabled = !userInput.IsZoneGuard;
-			userInput.HasDwellingMapObject();
+			//userInput.HasDwellingMapObject();
 			string monsterAiValue = string.Empty;
 			if (userInput.HasUnknownMapObject()) 
 			{
@@ -393,7 +418,7 @@ namespace Homm3.WPF
 				return;
 			}
 
-			var resultMessage = string.Empty;
+			string resultMessage;
 			if (userInput.HasUnknownMapObject())
 			{
 				lblTotalAiValue.Content = "";
@@ -537,12 +562,12 @@ namespace Homm3.WPF
 
 		private static List<Monster> LoadMonsters()
 		{
-			return MonsterFactory.CreateMonsters();
+			return MonsterFactory.ListMonsters();
 		}
 
 		private static List<MapObject> LoadMapObjects()
 		{
-			return MapObjectFactory.CreateMapObjects();
+			return MapObjectFactory.ListMapObjects();
 		}
 	}
 }

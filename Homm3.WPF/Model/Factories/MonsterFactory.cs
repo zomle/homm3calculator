@@ -12,13 +12,13 @@ namespace Homm3.WPF
 		{
 			monsters = new Dictionary<string, Monster>();
 
-			foreach (var monster in ListMonsters())
+			foreach (var monster in CreateMonsters())
 			{
 				monsters.Add(monster.Name, monster);
 			}
 		}
 
-		public static List<Monster> CreateMonsters()
+		public static List<Monster> ListMonsters()
 		{
 			return monsters.Values.ToList();
 		}
@@ -28,7 +28,7 @@ namespace Homm3.WPF
 			return monsters[name];
 		}
 
-		private static IEnumerable<Monster> ListMonsters()
+		private static IEnumerable<Monster> CreateMonsters()
 		{
 			yield return new Monster(Town.Conflux, "Air Elemental", 356, 6);
 			yield return new Monster(Town.Stronghold, "Ancient Behemoth", 6168, 1, 1);
@@ -51,7 +51,7 @@ namespace Homm3.WPF
 			yield return new Monster(Town.Rampart, "Centaur Captain", 138, 14, 1);
 			yield return new Monster(Town.Rampart, "Centaur", 100, 14);
 			yield return new Monster(Town.Inferno, "Cerberus", 392, 5, 1);
-			yield return new Monster(Town.Castle, "Champion", 2100, 2);
+			yield return new Monster(Town.Castle, "Champion", 2100, 2, 1);
 			yield return new Monster(Town.Fortress, "Chaos Hydra", 5931, 1, 1);
 			yield return new Monster(Town.Cove, "Corsair", 407, 7, 1);
 			yield return new Monster(Town.Cove, "Crew Mate", 155, 9);

@@ -22,7 +22,7 @@ namespace Homm3.WPF
 			mapObjects.Sort();
 		}
 
-		public static List<MapObject> CreateMapObjects()
+		public static List<MapObject> ListMapObjects()
 		{
 			return mapObjects.ToList();
 		}
@@ -136,6 +136,7 @@ namespace Homm3.WPF
 			yield return new MapObject("Pandora's Box (tier 7 monster)", 27000, "Pandora's Box monster 7");
 			yield return new MapObject("Pillar of Fire", 750);
 			yield return new MapObject("Pirate Cavern", 3500);
+			yield return new MapObject("Plate of Dying Light", 20000);
 			yield return new GuessableMapObject("Prison (lvl 1 hero)", 2500, "Prison 01", "", "lvl 1");
 			yield return new GuessableMapObject("Prison (lvl 5 hero)", 5000, "Prison 05", "", "lvl 5");
 			yield return new GuessableMapObject("Prison (lvl 10 hero)", 10000, "Prison 10", "", "lvl 10");
@@ -158,6 +159,7 @@ namespace Homm3.WPF
 			yield return new MapObject("Sea Barrel", 500);
 			yield return new MapObject("Sea Chest", 1500);
 			yield return new MapObject("Seafaring Academy", 8000);
+			yield return new MapObject("Seal of Sunset", 5000);
 			yield return new GuessableMapObject("Seer's Hut (5k exp)", 2000, "Seer's Hut exp 05", "exp", "5k");
 			yield return new GuessableMapObject("Seer's Hut (10k exp)", 5333, "Seer's Hut exp 10", "exp", "10k");
 			yield return new GuessableMapObject("Seer's Hut (15k exp)", 8666, "Seer's Hut exp 15", "exp", "15k");
