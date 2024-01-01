@@ -15,8 +15,8 @@ The program requires no installation whatsoever, it can be extracted and started
 
 ### Prerequisites
 
-The program uses .NET Core 3.0 and WPF, so the [.NET Core 3.0 Runtime](https://dotnet.microsoft.com/download/dotnet-core/3.0) 
-is required: .NET Core 3.0 Runtime to run apps, *.NET Core Desktop Installer* and *.NET Core Installer* might both be needed.
+The program uses .NET 8.0 and WPF, so the [.NET Desktup Runtime 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) 
+is required: .NET Desktop Runtime 8.0 to run apps.
 
 ### How to use
 
@@ -88,9 +88,9 @@ manner :)
 
 ### Development environment
 
-* I used *Visual Studio 2019 Community Edition* for development and WPF on *.NET Core 3.0*. 
-* I haven't used any fancy features, so it should work without any issues in *Visual Studio 
-2015 .NET Framework 4*, if the solution and WPF project files are created.
+* I used *Visual Studio 2022 Community Edition* for development and WPF on *.NET 8.0*. 
+* I haven't used any fancy features, so it should work without any issues with older environments, like *Visual Studio 
+2015 .NET Framework 4*, if the solution and WPF project files are (re)created.
 
 ## Authors
 
