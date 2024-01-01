@@ -383,6 +383,7 @@ namespace Homm3.WPF
 			yield return new MapObject("Golden Goose", 20000);
 			yield return new MapObject("Ironfist of the Ogre ", 20000);
 			yield return new MapObject("Pendant of Reflection", 20000);
+			yield return new MapObject("Sleepkeeper", 20000);
 		}
 
 		private static IEnumerable<DwellingMapObject> ListDwellings()
@@ -463,8 +464,17 @@ namespace Homm3.WPF
 			yield return new DwellingMapObject("Tower of the Seas (Sea Witch)", MonsterFactory.GetMonster("Sea Witch"));
 			yield return new DwellingMapObject("Nix Fort (Nix)", MonsterFactory.GetMonster("Nix"));
 			yield return new DwellingMapObject("Maelstrom (Sea Serpent)", MonsterFactory.GetMonster("Sea Serpent"));
+
+			yield return new DwellingMapObject("Halfling Adobe (Halfling)", MonsterFactory.GetMonster("Halfling"));
+			yield return new DwellingMapObject("Foundry (Mechanic)", MonsterFactory.GetMonster("Mechanic"));
+			yield return new DwellingMapObject("Ranch (Armadillo)", MonsterFactory.GetMonster("Armadillo"));
+			yield return new DwellingMapObject("Manufactory (Automaton)", MonsterFactory.GetMonster("Automaton"));
+			yield return new DwellingMapObject("Catacombs (Sandworm)", MonsterFactory.GetMonster("Sandworm"));
+			yield return new DwellingMapObject("Watchtower (Gunslinger)", MonsterFactory.GetMonster("Gunslinger"));
+			yield return new DwellingMapObject("Serpentarium (Couatl)", MonsterFactory.GetMonster("Couatl"));
+			yield return new DwellingMapObject("Gantry (Dreadnought)", MonsterFactory.GetMonster("Dreadnought"));
+
 			yield return new DwellingMapObject("Hovel (Peasant)", MonsterFactory.GetMonster("Peasant")) { ExtraMultiplier = 3 };
-			yield return new DwellingMapObject("Thatched Hut (Halfling)", MonsterFactory.GetMonster("Halfling"));
 			yield return new DwellingMapObject("Rogue Cavern (Rogue)", MonsterFactory.GetMonster("Rogue"));
 			yield return new DwellingMapObject("Alehouse (Leprechaun)", MonsterFactory.GetMonster("Leprechaun"));
 			yield return new DwellingMapObject("Boar Glen (Boar)", MonsterFactory.GetMonster("Boar"));

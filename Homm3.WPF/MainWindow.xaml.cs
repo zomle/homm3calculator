@@ -15,7 +15,7 @@ namespace Homm3.WPF
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		private const string SupportedHotaVersion = "1.6.1";
+		private const string SupportedHotaVersion = "1.7.0";
 
 		public List<Monster> Monsters { get; set; }
 		public List<MapObject> MapObjects { get; set; }

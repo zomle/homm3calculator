@@ -1,17 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <StartupObject></StartupObject>
-    <Product>HOMM3 HotA 1.6.1 calculator</Product>
+    <Product>HOMM3 HotA 1.7.0 calculator</Product>
     <Company></Company>
     <Authors>zomle</Authors>
     <PackageId>Homm3.Calculator</PackageId>
     <AssemblyName>Homm3.Calculator</AssemblyName>
-    <Version>1.0.4</Version>
+    <Version>1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

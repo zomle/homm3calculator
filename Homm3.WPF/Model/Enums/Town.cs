@@ -6,6 +6,7 @@
 		Conflux,
 		Cove,
 		Dungeon,
+		Factory,
 		Fortress,
 		Inferno,
 		Rampart,
