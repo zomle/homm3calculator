@@ -201,6 +201,7 @@ namespace Homm3.WPF
 			yield return new MapObject("Town Gate", 10000);
 			yield return new MapObject("Trading Post", 3000);
 			yield return new MapObject("Trailblazer", 200);
+			yield return new MapObject("Trapper Lodge", 500);
 			yield return new MapObject("Treasure Artifact", 2000);
 			yield return new MapObject("Treasure Chest", 1500);
 			yield return new MapObject("Tree of Knowledge", 2500);
@@ -473,6 +474,14 @@ namespace Homm3.WPF
 			yield return new DwellingMapObject("Watchtower (Gunslinger)", MonsterFactory.GetMonster("Gunslinger"));
 			yield return new DwellingMapObject("Serpentarium (Couatl)", MonsterFactory.GetMonster("Couatl"));
 			yield return new DwellingMapObject("Gantry (Dreadnought)", MonsterFactory.GetMonster("Dreadnought"));
+
+			yield return new DwellingMapObject("Colliery (Kobold)", MonsterFactory.GetMonster("Kobold"));
+			yield return new DwellingMapObject("Frigid Spur (Mountain Ram)", MonsterFactory.GetMonster("Mountain Ram"));
+			yield return new DwellingMapObject("Hall of the Bold (Snow Elf)", MonsterFactory.GetMonster("Snow Elf"));
+			yield return new DwellingMapObject("Mountain Embassy (Yeti)", MonsterFactory.GetMonster("Yeti"));
+			yield return new DwellingMapObject("Shaman Fane (Shaman)", MonsterFactory.GetMonster("Shaman"));
+			yield return new DwellingMapObject("Mammoth Stalls (Mammoth)", MonsterFactory.GetMonster("Mammoth"));
+			yield return new DwellingMapObject("Frosthome (Jotunn)", MonsterFactory.GetMonster("Jotunn"));
 
 			yield return new DwellingMapObject("Hovel (Peasant)", MonsterFactory.GetMonster("Peasant")) { ExtraMultiplier = 3 };
 			yield return new DwellingMapObject("Rogue Cavern (Rogue)", MonsterFactory.GetMonster("Rogue"));

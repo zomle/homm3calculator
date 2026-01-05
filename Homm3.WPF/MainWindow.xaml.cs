@@ -15,7 +15,7 @@ namespace Homm3.WPF
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		private const string SupportedHotaVersion = "1.7.0";
+		private const string SupportedHotaVersion = "1.8.0";
 
 		public List<Monster> Monsters { get; set; }
 		public List<MapObject> MapObjects { get; set; }
@@ -99,10 +99,12 @@ namespace Homm3.WPF
 
 			txtZoneConnection.TextChanged += TxtZoneConnection_TextChanged;
 			txtZoneTotalCount.TextChanged += TxtZoneCount_TextChanged;
+			txtZoneBulwarkCount.TextChanged += TxtZoneCount_TextChanged;
 			txtZoneCastleCount.TextChanged += TxtZoneCount_TextChanged;
 			txtZoneConfluxCount.TextChanged += TxtZoneCount_TextChanged;
 			txtZoneCoveCount.TextChanged += TxtZoneCount_TextChanged;
 			txtZoneDungeonCount.TextChanged += TxtZoneCount_TextChanged;
+			txtZoneFactoryCount.TextChanged += TxtZoneCount_TextChanged;
 			txtZoneFortressCount.TextChanged += TxtZoneCount_TextChanged;
 			txtZoneInfernoCount.TextChanged += TxtZoneCount_TextChanged;
 			txtZoneNecropolisCount.TextChanged += TxtZoneCount_TextChanged;
@@ -246,10 +248,12 @@ namespace Homm3.WPF
 			txtWeek.Text = "1";
 
 			txtZoneTotalCount.Text = "2";
+			txtZoneBulwarkCount.Text = "0";
 			txtZoneCastleCount.Text = "0";
 			txtZoneConfluxCount.Text = "0";
 			txtZoneCoveCount.Text = "0";
 			txtZoneDungeonCount.Text = "0";
+			txtZoneFactoryCount.Text = "0";
 			txtZoneFortressCount.Text = "0";
 			txtZoneInfernoCount.Text = "0";
 			txtZoneNecropolisCount.Text = "0";
@@ -336,6 +340,9 @@ namespace Homm3.WPF
 			int.TryParse(txtZoneTotalCount.Text, out tmpInt);
 			userInput.TotalTownZoneCount = tmpInt;
 
+			int.TryParse(txtZoneBulwarkCount.Text, out tmpInt);
+			userInput.TownZoneCounts[Town.Bulwark] = tmpInt;
+
 			int.TryParse(txtZoneCastleCount.Text, out tmpInt);
 			userInput.TownZoneCounts[Town.Castle] = tmpInt;
 
@@ -365,6 +372,9 @@ namespace Homm3.WPF
 
 			int.TryParse(txtZoneCoveCount.Text, out tmpInt);
 			userInput.TownZoneCounts[Town.Cove] = tmpInt;
+
+			int.TryParse(txtZoneFactoryCount.Text, out tmpInt);
+			userInput.TownZoneCounts[Town.Factory] = tmpInt;
 
 			return userInput;
 		}

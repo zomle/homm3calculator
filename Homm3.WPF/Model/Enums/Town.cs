@@ -2,6 +2,7 @@
 {
 	public enum Town
 	{
+		Bulwark,
 		Castle,
 		Conflux,
 		Cove,

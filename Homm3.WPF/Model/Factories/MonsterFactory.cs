@@ -37,6 +37,7 @@ namespace Homm3.WPF
 			yield return new Monster(Town.Tower, "Arch Mage", 680, 4, 1);
 			yield return new Monster(Town.Castle, "Archangel", 8776, 1, 1);
 			yield return new Monster(Town.Castle, "Archer", 126, 9);
+			yield return new Monster(Town.Bulwark, "Argali", 250, 9, 1);
 			yield return new Monster(Town.Factory, "Armadillo", 198, 6);
 			yield return new Monster(Town.Factory, "Automaton", 669, 5);
 			yield return new Monster(Town.Cove, "Ayssid", 645, 4, 1);
@@ -97,6 +98,7 @@ namespace Homm3.WPF
 			yield return new Monster(Town.Neutral, "Gold Golem", 600, 3);
 			yield return new Monster(Town.Fortress, "Gorgon", 890, 3);
 			yield return new Monster(Town.Rampart, "Grand Elf", 331, 7, 1);
+			yield return new Monster(Town.Bulwark, "Great Shaman", 818, 3, 1);
 			yield return new Monster(Town.Fortress, "Greater Basilisk", 714, 4, 1);
 			yield return new Monster(Town.Rampart, "Green Dragon", 4872, 1);
 			yield return new Monster(Town.Tower, "Gremlin", 44, 16);
@@ -116,7 +118,11 @@ namespace Homm3.WPF
 			yield return new Monster(Town.Inferno, "Imp", 50, 15);
 			yield return new Monster(Town.Dungeon, "Infernal Troglodyte", 84, 14, 1);
 			yield return new Monster(Town.Tower, "Iron Golem", 412, 6, 1);
+			yield return new Monster(Town.Bulwark, "Jotunn", 4180, 1);
+			yield return new Monster(Town.Bulwark, "Jotunn Warlord", 6694, 1, 1);
 			yield return new Monster(Town.Factory, "Juggernaut", 6433, 1, 1);
+			yield return new Monster(Town.Bulwark, "Kobold", 54, 15);
+			yield return new Monster(Town.Bulwark, "Kobold Foreman", 84, 15, 1);
 			yield return new Monster(Town.Neutral, "Leprechaun", 208, 9);
 			yield return new Monster(Town.Necropolis, "Lich", 848, 3);
 			yield return new Monster(Town.Fortress, "Lizard Warrior", 209, 9, 1);
@@ -125,6 +131,7 @@ namespace Homm3.WPF
 			yield return new Monster(Town.Conflux, "Magic Elemental", 2012, 2, 1);
 			yield return new Monster(Town.Conflux, "Magma Elemental", 490, 4, 1);
 			yield return new Monster(Town.Inferno, "Magog", 240, 8, 1);
+			yield return new Monster(Town.Bulwark, "Mammoth", 1359, 2);
 			yield return new Monster(Town.Dungeon, "Manticore", 1547, 2);
 			yield return new Monster(Town.Castle, "Marksman", 184, 9, 1);
 			yield return new Monster(Town.Tower, "Master Genie", 942, 3, 1);
@@ -136,6 +143,7 @@ namespace Homm3.WPF
 			yield return new Monster(Town.Dungeon, "Minotaur King", 1068, 3, 1);
 			yield return new Monster(Town.Dungeon, "Minotaur", 835, 3);
 			yield return new Monster(Town.Castle, "Monk", 582, 3);
+			yield return new Monster(Town.Bulwark, "Mountain Ram", 228, 9);
 			yield return new Monster(Town.Neutral, "Mummy", 270, 7);
 			yield return new Monster(Town.Tower, "Naga Queen", 2840, 2, 1);
 			yield return new Monster(Town.Tower, "Naga", 2016, 2);
@@ -174,12 +182,15 @@ namespace Homm3.WPF
 			yield return new Monster(Town.Cove, "Seaman", 174, 9, 1);
 			yield return new Monster(Town.Factory, "Sentinel Automaton", 947, 6,1);
 			yield return new Monster(Town.Fortress, "Serpent Fly", 268, 8);
+			yield return new Monster(Town.Bulwark, "Shaman", 685, 3);
 			yield return new Monster(Town.Neutral, "Sharpshooter", 585, 4);
 			yield return new Monster(Town.Rampart, "Silver Pegasus", 532, 5, 1);
 			yield return new Monster(Town.Necropolis, "Skeleton Warrior", 85, 12, 1);
 			yield return new Monster(Town.Necropolis, "Skeleton", 60, 12);
+			yield return new Monster(Town.Bulwark, "Snow Elf", 370, 7);
 			yield return new Monster(Town.Cove, "Sorceress", 852, 3, 1);
 			yield return new Monster(Town.Conflux, "Sprite", 95, 20, 1);
+			yield return new Monster(Town.Bulwark, "Steel Elf", 526, 7, 1);
 			yield return new Monster(Town.Neutral, "Steel Golem", 597, 4);
 			yield return new Monster(Town.Tower, "Stone Gargoyle", 165, 9);
 			yield return new Monster(Town.Tower, "Stone Golem", 250, 6);
@@ -194,6 +205,7 @@ namespace Homm3.WPF
 			yield return new Monster(Town.Necropolis, "Vampire Lord", 783, 4, 1);
 			yield return new Monster(Town.Necropolis, "Vampire", 555, 4);
 			yield return new Monster(Town.Necropolis, "Walking Dead", 98, 8);
+			yield return new Monster(Town.Bulwark, "War Mammoth", 1601, 2, 1);
 			yield return new Monster(Town.Rampart, "War Unicorn", 2030, 2, 1);
 			yield return new Monster(Town.Conflux, "Water Elemental", 315, 6);
 			yield return new Monster(Town.Necropolis, "Wight", 252, 7);
@@ -203,6 +215,8 @@ namespace Homm3.WPF
 			yield return new Monster(Town.Necropolis, "Wraith", 315, 7, 1);
 			yield return new Monster(Town.Fortress, "Wyvern Monarch", 1518, 2, 1);
 			yield return new Monster(Town.Fortress, "Wyvern", 1350, 2);
+			yield return new Monster(Town.Bulwark, "Yeti", 504, 4);
+			yield return new Monster(Town.Bulwark, "Yeti Runemaster", 751, 4, 1);
 			yield return new Monster(Town.Castle, "Zealot", 750, 3, 1);
 			yield return new Monster(Town.Necropolis, "Zombie", 128, 8, 1);
 		}
